@@ -1,0 +1,87 @@
+#字典的创建方式
+#1.使用{}创建
+score={'张三':123,'李四':133,'王老五':134}
+print(score)
+print(type(score))
+
+#2.使用dict()创建
+student=dict(name='jack',age=19)
+print(student)
+
+#3.空字典
+d=dict()
+print(d)
+
+#获取字典里的元素
+#1.使用[] 会抛异常
+score={'张三':123,'李四':133,'王老五':134}
+print(score['张三'])
+
+#2.使用get() 不会抛异常
+print(score.get('张三'))
+print(score.get('马奇',99))#返回马奇不存在时提供的默认值99
+
+#字典的常用操作
+#1.key的判断 in/not in
+score={'张三':123,'李四':133,'王老五':134}
+print('张三'in score)
+print('李四' not in score)
+
+#字典的删除del  删除指定的key-value对
+del score['张三']
+#score.clear()#清空字典的元素
+print(score)
+
+#新增元素
+score['陈六']=98
+print(score)
+
+#修改元素
+score['陈六']=100
+print(score)
+
+
+
+#获取字典视图的三个方法 keys()   values()   items()/获取key-value对
+#获取所有的key
+score={'张三':123,'李四':133,'王老五':134}
+key=score.keys()
+print(key)
+print(type(key))
+print(list(key))#将所有的key组成的视图转成列表
+
+#获取所有的value
+value=score.values()
+print(value)
+print(type(value))
+print(list(value))
+
+#获取所有的key-value
+item=score.items()
+print(item)
+print(type(item))
+print(list(item))#转换之后的所有元素是由原组组成的
+
+#字典元素的遍历
+score={'张三':123,'李四':133,'王老五':134}
+for item in score:
+    print(item)
+    print(item,score[item],score.get(item))
+
+
+#字典的特点
+#1.key不允许重复，如果重复则会覆盖 value可以重复
+d={'name':'张三','name':'李四'}#{'name': '李四'}  李四覆盖张三
+print(d)
+
+#2.字典中的元素是无序的 （哈希函数）
+#3.字典中的key必须是不可变对象（目前学的不可变对象有：整数，字符串）
+#4.字典也可以根据需要动态的伸缩
+#5。字典会浪费较大的内存。是一种使用空间换时间的数据结构
+
+#字典生成式  内置函数zip()
+item=['Fruit','Book','Others']#当元素不相匹配时，以少的那个为基准
+price=[98,87,78]
+
+d={item.upper():price  for item,price in zip(item,price) }
+print(d)
