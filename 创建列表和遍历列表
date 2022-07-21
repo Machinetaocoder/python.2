@@ -1,0 +1,34 @@
+#创建列表的几种方法
+#lst=['hello','world',98,'hello']
+#lst2=list(['hello','world',98])
+
+#index()
+lst=['hello','world',98,'hello']#index求元素的索引（下标）
+print(lst.index('hello'))#如果列表中有相同元素只返回列表中相同的第一个元素的索引
+print(lst.index('hello',1,4))#ValueError: 'hello' is not in list
+
+lst=['hello','world',98,'hello','world',234]
+print(lst[2])#98 正向索引
+print(lst[-3])#hello  逆向索引
+
+lst=[10,20,30,40,50,60,70,80,90]
+#start=1,stop=6,step=1（步长为1可以省略）step为正数
+print(lst[1:6:1])#切的片段是一个新的列表，id不同
+print(lst[1:6:])
+print(lst[1:6])
+print(lst[:6:1])
+print(lst[1::2])
+
+#step为负数的情况
+print('源列表',lst)#源列表 [10, 20, 30, 40, 50, 60, 70, 80, 90]
+print(lst[::-1])#[90, 80, 70, 60, 50, 40, 30, 20, 10]
+print(lst[7::-1])#[90, 80, 70, 60, 50, 40, 30, 20, 10]
+
+#元素遍历
+lst=[10,20,'hello','k','world']
+print(10 in lst)
+print('hello' in lst)
+print(1090 not in lst)
+print('-------------遍历列表里面的元素--------------')
+for item in lst:
+    print(item)
